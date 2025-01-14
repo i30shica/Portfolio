@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "Home Security System",
+      "image": "assets/project1.jpg",
+      "github": "https://github.com/ishica/home-security"
+    },
+    {
+      "id": 2,
+      "title": "Brain Tumor Detection",
+      "image": "assets/project2.jpg",
+      "github": "https://github.com/ishica/brain-tumor-detection"
+    },
+    {
+      "id": 3,
+      "title": "Smart Home Automation",
+      "image": "assets/project3.jpg",
+      "github": "https://github.com/ishica/smart-home-automation"
+    }
+  ]
+  
