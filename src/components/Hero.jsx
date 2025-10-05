@@ -1,77 +1,71 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { useState } from "react";
+import backgroundImg from "../assets/your-background.jpg";
+import dp from "../assets/your-background.jpg";
+import ResumeModal from "./ResumeModal"; // 👈 Import the modal
 
 export default function Hero() {
+  const [showResume, setShowResume] = useState(false);
+
   return (
     <section
       id="hero"
-      className="h-screen flex flex-col items-start justify-center 
-                 px-20 bg-white text-black dark:bg-black dark:text-white font-sans"
+      className="relative w-full min-h-screen flex flex-col items-center justify-start bg-black text-white"
     >
-      {/* Profile Image */}
-      <img
-        src="/profile.jpg" // put your photo in public folder as profile.jpg
-        alt="Ishica"
-        className="w-40 h-40 rounded-2xl border-4 border-gray-400 dark:border-white shadow-lg mb-6 object-cover"
-      />
+      {/* Background Banner */}
+      <div
+        className="w-full h-80 bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImg})` }}
+      ></div>
 
-      {/* Name */}
-      <h1 className="text-5xl font-bold">
-        Hi, I’m Ishica 🚀
-      </h1>
+      {/* Profile Pic (DP) */}
+      <div className="relative -mt-20">
+        <img
+          src={dp}
+          alt="Ishica"
+          className="w-40 h-40 rounded-full border-4 border-pink-500 shadow-lg object-cover"
+        />
+      </div>
 
-      {/* Tagline */}
-      <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-xl">
-        Engineer | Tech Enthusiast | Blogger  
-        <br />I love building meaningful projects & sharing ideas ✨
-      </p>
+      {/* Intro Text */}
+      <div className="mt-6 text-center px-4">
+        <h1 className="text-4xl md:text-5xl font-bold font-[Poppins]">
+          Hi, I’m Ishica 🚀
+        </h1>
+        <p className="mt-2 text-lg md:text-xl text-gray-300">
+          Love to build meaningful projects ✨ | Big fan of Marvel & BTS 💜
+        </p>
+      </div>
 
-      {/* Buttons */}
-      <div className="mt-6 flex space-x-4">
+      {/* Navigation Links */}
+      <div className="mt-6 flex flex-wrap justify-center gap-6 text-lg font-medium">
+        <a
+          href="#about"
+          className="hover:underline hover:text-pink-400 transition-colors"
+        >
+          About Me
+        </a>
         <a
           href="#projects"
-          className="px-6 py-3 border border-gray-400 rounded-full 
-                     text-black dark:text-white 
-                     hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          className="hover:underline hover:text-pink-400 transition-colors"
         >
-          View Projects →
+          Projects
         </a>
-        <a
-          href="#contact"
-          className="px-6 py-3 border border-gray-400 rounded-full 
-                     bg-black text-white dark:bg-white dark:text-black 
-                     flex items-center space-x-2 
-                     hover:bg-gray-800 dark:hover:bg-gray-200 transition"
+        <button
+          onClick={() => setShowResume(true)} // 👈 open the modal
+          className="hover:underline hover:text-pink-400 transition-colors"
         >
-          <span>Contact Me</span>
-          <Mail size={20} />
+          Resume
+        </button>
+        <a
+          href="#blogs"
+          className="hover:underline hover:text-pink-400 transition-colors"
+        >
+          My Blogs
         </a>
       </div>
 
-      {/* Social Icons */}
-      <div className="mt-6 flex space-x-6">
-        <a
-          href="https://github.com/yourusername"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-gray-600 dark:hover:text-gray-300"
-        >
-          <Github size={28} />
-        </a>
-        <a
-          href="https://linkedin.com/in/yourusername"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-gray-600 dark:hover:text-gray-300"
-        >
-          <Linkedin size={28} />
-        </a>
-        <a
-          href="mailto:youremail@example.com"
-          className="hover:text-gray-600 dark:hover:text-gray-300"
-        >
-          <Mail size={28} />
-        </a>
-      </div>
+      {/* Resume Modal */}
+      <ResumeModal show={showResume} onClose={() => setShowResume(false)} />
     </section>
   );
 }
