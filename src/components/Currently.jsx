@@ -3,20 +3,30 @@
 export default function Currently() {
   const items = [
     {
-      title: "Job Hunting & Projects",
+      title: "Career Moves",
       value: (
         <>
-          Actively applying and building cool projects 💻 –{" "}
+          Exploring new Opportunities and craving my path in tech 💻 –{" "}
+          {/* 
           <a
             href="https://github.com/YourUsername"
             target="_blank"
             className="text-pink-500 dark:text-pink-400 underline hover:text-pink-400 dark:hover:text-pink-300"
           >
             Watch me hustle
-          </a>
+          </a> 
+          */}
         </>
       ),
     },
+    {
+  title: "Projects",
+  value: (
+    <>
+      Working on meaningful projects that bring ideas to life 💻✨
+    </>
+  ),
+},
     {
       title: "Reading",
       value: "The Friends by Fredrik Backman 📚",
@@ -31,7 +41,7 @@ export default function Currently() {
         <>
           Trying very hard to not break my streak 🔥 –{" "}
           <a
-            href="https://starva.com/YourProfile"
+            href="https://strava.app.link/UWtleCZwRXb"
             target="_blank"
             className="text-red-500 dark:text-red-400 underline hover:text-red-400 dark:hover:text-red-300"
           >
@@ -44,18 +54,16 @@ export default function Currently() {
       title: "Recently Visited",
       value: "Andaman Islands 🌴 – completely in love with it!",
     },
-    {
-      title: "Personal Growth",
-      value: "Learning new things and experimenting daily 🌟",
-    },
   ];
 
   return (
-    <section className="py-12 px-6 max-w-3xl mx-auto">
+    <section className="py-12 px-10 max-w-[1400px] mx-auto">
       <h2 className="text-3xl font-bold mb-8 text-center font-[Poppins] text-black dark:text-white">
-        Currently
+        Currently I Am,
       </h2>
-      <div className="flex flex-col gap-4">
+
+      {/* Grid layout — 1 column on small screens, 2 columns on medium+ */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {items.map((item, idx) => (
           <div
             key={idx}
